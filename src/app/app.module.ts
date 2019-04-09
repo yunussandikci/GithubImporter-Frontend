@@ -11,6 +11,7 @@ import { ApiService } from './services/api.service';
 import { GithubSearchComponent } from './github-search/github-search.component';
 import { ProjectSearchComponent } from './project-search/project-search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProjectListComponent } from './project-list/project-list.component';
 
 
 import {
@@ -34,6 +35,11 @@ const appRoutes: Routes = [
     path: 'projectsearch',
     component: ProjectSearchComponent,
     data: { title: 'Project Search' }
+  },
+  {
+    path: 'projectlist/:username',
+    component: ProjectListComponent,
+    data: { title: 'Project List' }
   }
 ];
 
@@ -41,7 +47,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     GithubSearchComponent,
-    ProjectSearchComponent
+    ProjectSearchComponent,
+    ProjectListComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

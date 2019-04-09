@@ -9,24 +9,12 @@ import { Project } from '../models/projects';
   styleUrls: ['./project-search.component.css']
 })
 
-export class ProjectSearchComponent implements OnInit {
+export class ProjectSearchComponent{
+  constructor(private router: Router) { }
 
-  constructor(public rest:ApiService, private route: ActivatedRoute, private router: Router) { }
-
-  displayedColumns: string[] = ['id', 'name'];
-  data: Project[] = [];
-  isLoadingResults = true;
-
-  ngOnInit() {
-    this.rest.getImportedRepositoriesByUsername("yunussandikci").subscribe(res => {
-      this.data = res;
-      console.log(res);
-      this.isLoadingResults = false;
-    }, (err) => {
-      console.log(err);
-      this.isLoadingResults = false;
-    }
-  );
+  username: string;
+  onSubmit() {
+    this.router.navigate(['/projectlist/' + this.username]);
   }
 
 }
