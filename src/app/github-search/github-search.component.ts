@@ -13,12 +13,7 @@ export class GithubSearchComponent implements OnInit {
   constructor(public rest:ApiService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.rest.getImportedRepositoriesByUsername("yunussandikci").subscribe(res => {
-      console.log(res);
-    }, (err) => {
-      console.log(err);
-    }
-  );
+    
   }
 
 }
