@@ -1,17 +1,27 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { map, catchError, tap } from 'rxjs/operators';
 
+const endpoint = 'http://localhost:8080/api/v1/';
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json'})
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json'
+  })
 };
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class ApiService {
 
   constructor(private http:HttpClient) { }
 
-  getRepositories(){
-    return this.http.get('localhost:8080/api/v1/yunussandikci');
+  private extractData(res: Response) {
+    let body = res;
+    return body || { };
+  }
+
+  getImportedRepositoriesByUsername(username): Observable<any> {
+    return this.http.get(endpoint + 'projects/search/' + username).pipe(
+      map(this.extractData));
   }
 }
