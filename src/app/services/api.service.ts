@@ -20,8 +20,12 @@ export class ApiService {
     return body || { };
   }
 
-  getImportedRepositoriesByUsername(username): Observable<any> {
-    return this.http.get(endpoint + 'projects/search/' + username).pipe(
-      map(this.extractData));
+  importRepositoryFromGithubByUsername(username): Observable<any> {
+    return this.http.get(endpoint + 'github/import/' + username).pipe(map(this.extractData));
   }
+
+  getImportedRepositoriesByUsername(username): Observable<any> {
+    return this.http.get(endpoint + 'projects/search/' + username).pipe(map(this.extractData));
+  }
+
 }

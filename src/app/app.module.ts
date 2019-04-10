@@ -8,10 +8,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ApiService } from './services/api.service';
-import { GithubSearchComponent } from './github-search/github-search.component';
-import { ProjectSearchComponent } from './project-search/project-search.component';
+import { GithubImportComponent } from './components/github-import/github-import.component';
+import { ProjectSearchComponent } from './components/project-search/project-search.component';
+import { ProjectListComponent } from './components/project-list/project-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ProjectListComponent } from './project-list/project-list.component';
 
 
 import {
@@ -27,8 +27,8 @@ import {
   
 const appRoutes: Routes = [
   {
-    path: 'githubsearch',
-    component: GithubSearchComponent,
+    path: 'githubimport',
+    component: GithubImportComponent,
     data: { title: 'Github Search' }
   },
   {
@@ -46,7 +46,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    GithubSearchComponent,
+    GithubImportComponent,
     ProjectSearchComponent,
     ProjectListComponent
   ],

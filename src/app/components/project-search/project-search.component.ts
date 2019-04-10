@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../services/api.service';
+import { ApiService } from '../../services/api.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Project } from '../models/projects';
+import { Project } from '../../models/projects';
 
 @Component({
   selector: 'app-project-search',
