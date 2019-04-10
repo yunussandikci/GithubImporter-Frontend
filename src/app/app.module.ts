@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 import { ApiService } from './services/api.service';
 import { GithubImportComponent } from './components/github-import/github-import.component';
 import { ProjectSearchComponent } from './components/project-search/project-search.component';
-import { ProjectListComponent } from './components/project-list/project-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -23,6 +22,7 @@ import {
   MatIconModule,
   MatButtonModule,
   MatCardModule,
+  MatToolbarModule,
   MatFormFieldModule } from "@angular/material";
   
 const appRoutes: Routes = [
@@ -36,11 +36,6 @@ const appRoutes: Routes = [
     component: ProjectSearchComponent,
     data: { title: 'Project Search' }
   },
-  {
-    path: 'projectlist/:username',
-    component: ProjectListComponent,
-    data: { title: 'Project List' }
-  }
 ];
 
 @NgModule({
@@ -48,8 +43,7 @@ const appRoutes: Routes = [
     AppComponent,
     GithubImportComponent,
     ProjectSearchComponent,
-    ProjectListComponent
-  ],
+    ],
   imports: [
     RouterModule.forRoot(appRoutes),
     BrowserModule,
@@ -64,6 +58,7 @@ const appRoutes: Routes = [
     MatSortModule,
     MatProgressSpinnerModule,
     MatIconModule,
+    MatToolbarModule,
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule

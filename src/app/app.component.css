@@ -1,0 +1,10 @@
+.navbar{
+    background-color: #3f51b5;
+    margin-bottom: 50px;
+}
+.spacer {
+    flex: 1 1 10px;
+  }
+.navbar button{
+    margin-right: 20px;
+}
