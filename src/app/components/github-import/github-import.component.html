@@ -1,4 +1,4 @@
-<div  class="container mat-elevation-z8">
+<mat-card  class="container">
   <form #githubImportForm="ngForm" id="githubImportForm" (ngSubmit)="onSubmit(githubImportForm)">
       <mat-form-field style="width:100%">
         <div class="row">
@@ -9,4 +9,4 @@
           <button mat-raised-button color="accent" ng-disabled="githubImportForm.$invalid" style="width:100%">Import to Database</button>
           </div>
     </form>
-</div>
+</mat-card>

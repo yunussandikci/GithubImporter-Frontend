@@ -3,6 +3,9 @@
   margin: 25px;
   padding: 25px;
 }
+.card{
+  margin-top: 25px;
+}
 .usernameform{
   position: relative;
   width: 320px;
@@ -10,6 +13,9 @@
 .searchButton{
   left: 30px;
   width: 120px;
+}
+.mat-card-avatar{
+  background-size: cover;
 }
 table {
   margin-top: 20px;

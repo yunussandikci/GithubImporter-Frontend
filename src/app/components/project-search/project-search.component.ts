@@ -17,16 +17,19 @@ export class ProjectSearchComponent{
   isLoadingResults = false;
   isEmpty = true;
   message = "";
+  owner = [];
   username = "";
 
   onClickSearchButton() {
     if(this.username.length > 0){
       this.data = [];
+      this.owner = null;
       this.isEmpty = true;
       this.message = "";
       this.isLoadingResults = true;
       this.rest.getImportedRepositoriesByUsername(this.username).subscribe(res => {
         this.data = res.importedProjects;
+        this.owner = res.owner;
         this.isLoadingResults = false;
         this.isEmpty = false;
       }, (err) => {

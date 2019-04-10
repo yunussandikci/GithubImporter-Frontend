@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'githubimporter-ui';
+  constructor(private renderer: Renderer2) {
+    this.renderer.setStyle(document.body, 'background-color', '#ecf0f1');
+  }
 }
