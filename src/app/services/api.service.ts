@@ -25,7 +25,7 @@ export class ApiService {
   }
 
   getImportedRepositoriesByUsername(username): Observable<any> {
-    return this.http.get(endpoint + 'projects/search/' + username).pipe(map(this.extractData));
+    return this.http.get(endpoint + 'projects/' + username).pipe(map(this.extractData));
   }
 
 }

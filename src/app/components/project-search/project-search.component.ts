@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Project } from '../../models/projects';
 
 @Component({
   selector: 'app-project-search',
@@ -10,11 +9,36 @@ import { Project } from '../../models/projects';
 })
 
 export class ProjectSearchComponent{
-  constructor(private router: Router) { }
+  constructor(public rest:ApiService,private route: ActivatedRoute, private router: Router) { }
 
-  username: string;
-  onSubmit() {
-    this.router.navigate(['/projectlist/' + this.username]);
+  displayedColumns: string[] = ['id', 'name'];
+  data = [];
+
+  isLoadingResults = false;
+  isEmpty = true;
+  message = "";
+  username = "";
+
+  onClickSearchButton() {
+    if(this.username.length > 0){
+      this.data = [];
+      this.isEmpty = true;
+      this.message = "";
+      this.isLoadingResults = true;
+      this.rest.getImportedRepositoriesByUsername(this.username).subscribe(res => {
+        this.data = res.importedProjects;
+        this.isLoadingResults = false;
+        this.isEmpty = false;
+      }, (err) => {
+        this.isLoadingResults = false;
+        this.isEmpty = true;
+        if(err.status == 404){
+          this.message = err.error.message;
+        }else{
+          this.message = "Something went wrong";
+        }
+      });
+    }
   }
 
 }

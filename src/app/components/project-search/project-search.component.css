@@ -1,10 +1,24 @@
 .container {
-    position: fixed;
-    left: calc(-50vw + 50%);
-    right: calc(-50vw + 50%);
-    margin-left: auto;
-    margin-right: auto;
-    padding: 5px;
-    width: 250px;
-    padding: 20px;
-  }
+  position: relative;
+  margin: 25px;
+  padding: 25px;
+}
+.usernameform{
+  position: relative;
+  width: 320px;
+}
+.searchButton{
+  left: 30px;
+  width: 120px;
+}
+table {
+  margin-top: 20px;
+  width: 100%;
+}
+.loading-shade {
+  position: relative;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
