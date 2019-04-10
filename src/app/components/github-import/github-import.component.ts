@@ -17,25 +17,26 @@ export class GithubImportComponent{
   username = ""
   onSubmit(form) {
     if(this.username.length > 0){
-      console.log(form)
       Swal.fire({
         title: "Wait a sec",
         text: "Importing from " + this.username,
         onBeforeOpen: () =>{
           Swal.showLoading()
-        }
+        },
+        allowOutsideClick: () => !Swal.isLoading()
       })
-      this.rest.importRepositoryFromGithubByUsername(this.route.snapshot.params['username']).subscribe(res => {
+      this.rest.importRepositoryFromGithubByUsername(this.username).subscribe(res => {
+        console.log(res)
         Swal.fire(
           'Success',
-          'All repositories of ' + this.username + ' successfully imported.',
+          res.importedRepositoryCount + ' repositories of ' + this.username + ' successfully imported.',
           'success'
         );
       }, (err) => {
         Swal.fire({
           type: 'error',
           title: 'Error',
-          text: 'Something went wrong! :(',
+          text: err.error.message,
         })
       });
     }else{
