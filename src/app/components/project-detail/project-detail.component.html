@@ -1,0 +1,115 @@
+<div class="container">
+  <div class="full_name">
+    <h1>{{ data.full_name }}</h1>
+  </div>
+  <div class="description">
+    <h4>{{ data.description }}</h4>
+  </div>
+  <div class="row">
+    <mat-card class="card stats">
+      <mat-grid-list cols="4" rowHeight="4:0.6">
+        <mat-grid-tile>
+          <h2>Size</h2>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <h2>Language</h2>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <h2>Stars</h2>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <h2>Watchers</h2>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <h3>{{ data.size }}</h3>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <h3>{{ data.language }}</h3>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <h3>{{ data.stargazers_count}}</h3>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <h3>{{ data.watchers_count}}</h3>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-card>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-between stretch" fxLayoutGap="50px" class="card">
+
+    <mat-card fxFlex="%25">
+      <mat-list>
+        <h3 mat-subheader>Create Date </h3>
+        <mat-list-item>
+          <mat-icon mat-list-icon>calendar_today</mat-icon>
+          <h4 mat-line>{{data.created_at | date}}</h4>
+          <p mat-line> </p>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <h3 mat-subheader>Update Date</h3>
+        <mat-list-item>
+          <mat-icon mat-list-icon>calendar_today</mat-icon>
+          <h4 mat-line>{{data.updated_at | date}}</h4>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <h3 mat-subheader>Pushed Date </h3>
+        <mat-list-item>
+          <mat-icon mat-list-icon>calendar_today</mat-icon>
+          <h4 mat-line>Pushed Date</h4>
+          <p mat-line> {{data.pushed_at | date}} </p>
+        </mat-list-item>
+      </mat-list>
+    </mat-card>
+
+    <mat-card fxFlex="%25">
+      <mat-list>
+        <h3 mat-subheader>Has Issues </h3>
+        <mat-list-item>
+          <mat-icon *ngIf="data.has_issues" mat-list-icon>done</mat-icon>
+          <mat-icon *ngIf="!data.has_issues" mat-list-icon>close</mat-icon>
+          <h4 mat-line>{{data.has_issues}}</h4>
+          <p mat-line> </p>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <h3 mat-subheader>Has Projects</h3>
+        <mat-list-item>
+          <mat-icon *ngIf="data.has_projects" mat-list-icon>done</mat-icon>
+          <mat-icon *ngIf="!data.has_projects" mat-list-icon>close</mat-icon>
+          <h4 mat-line>{{data.has_projects}}</h4>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <h3 mat-subheader>Has Pages </h3>
+        <mat-list-item>
+          <mat-icon *ngIf="data.has_pages" mat-list-icon>done</mat-icon>
+          <mat-icon *ngIf="!data.has_pages" mat-list-icon>close</mat-icon>
+          <h4 mat-line>{{data.has_pages}}</h4>
+        </mat-list-item>
+      </mat-list>
+    </mat-card>
+
+    <mat-card fxFlex="%25">
+      <mat-list>
+        <h3 mat-subheader>Is Fork </h3>
+        <mat-list-item>
+            <mat-icon *ngIf="data.fork" mat-list-icon>done</mat-icon>
+            <mat-icon *ngIf="!data.fork" mat-list-icon>close</mat-icon>
+            <h4 mat-line>{{data.fork}}</h4>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <h3 mat-subheader>Is Disabled</h3>
+        <mat-list-item>
+          <mat-icon *ngIf="data.disabled" mat-list-icon>done</mat-icon>
+          <mat-icon *ngIf="!data.disabled" mat-list-icon>close</mat-icon>
+          <h4 mat-line>{{data.disabled}}</h4>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <h3 mat-subheader>Is Archived </h3>
+        <mat-list-item>
+          <mat-icon *ngIf="data.archived" mat-list-icon>done</mat-icon>
+          <mat-icon *ngIf="!data.archived" mat-list-icon>close</mat-icon>
+          <h4 mat-line>{{data.archived}}</h4>
+        </mat-list-item>
+      </mat-list>
+    </mat-card>
+  </div>
+</div>

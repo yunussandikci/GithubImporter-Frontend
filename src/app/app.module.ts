@@ -8,10 +8,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ApiService } from './services/api.service';
+import { ProjectDetailComponent } from './components/project-detail/project-detail.component';
 import { GithubImportComponent } from './components/github-import/github-import.component';
 import { ProjectSearchComponent } from './components/project-search/project-search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import {
   MatInputModule,
@@ -21,20 +22,26 @@ import {
   MatTableModule,
   MatIconModule,
   MatButtonModule,
+  MatListModule,
   MatCardModule,
   MatToolbarModule,
-  MatFormFieldModule } from "@angular/material";
+  MatFormFieldModule, 
+  MatGridListModule} from "@angular/material";
   
 const appRoutes: Routes = [
   {
+    path: 'projects/:id',
+    component: ProjectDetailComponent,
+    data: { title: 'Project Detail' }
+  },
+  {
+    path: 'projects',
+    component: ProjectSearchComponent,
+    data: { title: 'Project Search' }
+  },{
     path: 'githubimport',
     component: GithubImportComponent,
     data: { title: 'Github Search' }
-  },
-  {
-    path: 'projectsearch',
-    component: ProjectSearchComponent,
-    data: { title: 'Project Search' }
   },
 ];
 
@@ -43,6 +50,7 @@ const appRoutes: Routes = [
     AppComponent,
     GithubImportComponent,
     ProjectSearchComponent,
+    ProjectDetailComponent,
     ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -58,6 +66,9 @@ const appRoutes: Routes = [
     MatSortModule,
     MatProgressSpinnerModule,
     MatIconModule,
+    MatGridListModule,
+    MatListModule,
+    FlexLayoutModule,
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
