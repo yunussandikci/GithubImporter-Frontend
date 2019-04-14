@@ -43,6 +43,10 @@ const appRoutes: Routes = [
     component: GithubImportComponent,
     data: { title: 'Github Search' }
   },
+  { path: '',
+    redirectTo: 'githubimport',
+    pathMatch: 'full' 
+  },
 ];
 
 @NgModule({
