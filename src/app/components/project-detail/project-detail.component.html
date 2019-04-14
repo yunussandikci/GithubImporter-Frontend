@@ -1,4 +1,9 @@
 <div class="container">
+  <mat-spinner class="loading-shade" [diameter]="100" *ngIf="isLoadingResult"></mat-spinner>
+  <mat-card class="message" *ngIf="message">
+      <p style="text-align: center;">{{message}}</p>
+    </mat-card>
+  <div *ngIf="!isEmpty">
   <div class="full_name">
     <h1>{{ data.full_name }}</h1>
   </div>
@@ -112,4 +117,5 @@
       </mat-list>
     </mat-card>
   </div>
+</div>
 </div>

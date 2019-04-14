@@ -12,9 +12,9 @@ export class ProjectDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, private rest: ApiService, private router: Router) { }
 
   data = [];
-  isEmpty = false;
+  isEmpty = true;
   isLoadingResult = false;
-  message = "";
+  message = null;
   ngOnInit() {
     this.isLoadingResult = true;
     this.rest.getImportedRepositoryDetail(this.route.snapshot.params['id']).subscribe(res => {

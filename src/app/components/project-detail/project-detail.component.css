@@ -23,3 +23,8 @@
 .description h4{
     color: #34495e;
 }
+.loading-shade {
+    position: fixed;
+    left: 45%;
+    transform: translateX(-50%);
+  }
